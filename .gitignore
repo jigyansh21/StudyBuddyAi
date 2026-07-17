@@ -1,3 +1,24 @@
-venv/ 
-__pycache__/ 
-*.pyc 
+# virtual environments
+venv/
+.venv/
+lms-backend/venv/
+
+# python cache
+__pycache__/
+*.pyc
+**/__pycache__/
+**/*.pyc
+
+# local uploads
+lms-backend/uploads/
+
+# next.js build and node modules
+lms-frontend/.next/
+lms-frontend/node_modules/
+
+# IDE files
+.vscode/
+.idea/
+
+# accidental files
+lms-backend/uvicorn

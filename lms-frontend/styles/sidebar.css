@@ -1,0 +1,240 @@
+/* ==========================================
+   SIDEBAR (FINAL PREMIUM SAAS)
+========================================== */
+.admin-sidebar {
+  width: 260px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.62));
+  overflow-y: auto;
+  overflow-x: hidden;
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 12px 0 35px rgba(15, 23, 42, 0.03);
+  z-index: 50;
+  flex-shrink: 0; /* NEW: Prevents sidebar from shrinking */
+}
+
+/* ==========================================
+   Brand & Logo
+========================================== */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 34px;
+  padding: 6px;
+}
+
+.sidebar-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  box-shadow: 0 12px 25px rgba(59, 130, 246, 0.35);
+  flex-shrink: 0;
+  transition: 0.25s ease;
+}
+
+.sidebar-logo:hover {
+  transform: rotate(-5deg) scale(1.04);
+}
+
+.sidebar-brand-text h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #0f172a;
+}
+
+.sidebar-brand-text p {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* ==========================================
+   Sections
+========================================== */
+.sidebar-section {
+  margin-bottom: 28px;
+}
+
+.sidebar-section-title {
+  margin: 0 0 12px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* ==========================================
+   Menu
+========================================== */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 52px;
+  padding: 0 14px;
+  border-radius: 14px;
+  position: relative;
+  /* NEW: Ultra-smooth multi-property transition */
+  transition: background 0.25s, transform 0.25s, color 0.25s, box-shadow 0.25s;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.82);
+  transform: translateX(3px) scale(1.01);
+  color: #0f172a;
+}
+
+.menu-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #edf2f7;
+  transition: 0.25s ease;
+}
+
+/* NEW: Perfect Icon Centering for Lucide */
+.menu-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.menu-item:hover .menu-icon {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* ==========================================
+   ACTIVE
+========================================== */
+.active-menu {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(239, 246, 255, 0.95));
+  color: #2563eb;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.active-menu::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  border-radius: 999px;
+  background: #2563eb;
+  box-shadow: 0 0 18px rgba(37, 99, 235, 0.5);
+}
+
+.active-menu .menu-icon {
+  background: #dbeafe;
+  color: #2563eb;
+  border-color: #dbeafe;
+}
+
+/* ==========================================
+   Divider
+========================================== */
+.sidebar-divider {
+  height: 1px;
+  margin: 24px 0;
+  background: linear-gradient(90deg, transparent, #dbe4ef, transparent);
+}
+
+/* ==========================================
+   Logout
+========================================== */
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 54px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  transition: background 0.25s, transform 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.logout-button:hover {
+  background: linear-gradient(90deg, #fff5f5, #ffffff);
+  color: #ef4444;
+  transform: translateX(3px) scale(1.01);
+  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.08);
+}
+
+.logout-button:hover .menu-icon {
+  background: #fee2e2;
+  border-color: #fee2e2;
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+@media (max-width: 1100px) {
+  .admin-sidebar {
+    width: 88px;
+    padding: 24px 12px;
+  }
+  .sidebar-logo {
+    margin: auto;
+  }
+  .sidebar-brand-text,
+  .sidebar-section-title,
+  .menu-item span,
+  .logout-button span {
+    display: none;
+  }
+  .menu-item {
+    justify-content: center;
+    padding: 0;
+  }
+  .logout-button {
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+/* Hide scrollbar for a cleaner look */
+.admin-sidebar {
+  scrollbar-width: none; /* Firefox */
+}
+
+.admin-sidebar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}

@@ -1,22 +1,30 @@
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
+from sqlalchemy import ForeignKey
 from sqlalchemy import DateTime
-from sqlalchemy import Text
+
+from sqlalchemy.orm import relationship
 
 from datetime import datetime
 
 from database import Base
 
 
-class Course(Base):
+class Chapter(Base):
 
-    __tablename__ = "courses"
+    __tablename__ = "chapters"
 
     id = Column(
         Integer,
         primary_key=True,
         index=True
+    )
+
+    course_id = Column(
+        Integer,
+        ForeignKey("courses.id"),
+        nullable=False
     )
 
     title = Column(
@@ -25,38 +33,23 @@ class Course(Base):
     )
 
     description = Column(
-        Text,
-        nullable=False
-    )
-
-    category = Column(
-        String,
-        nullable=False
-    )
-
-    difficulty = Column(
-        String,
-        nullable=False
-    )
-
-    language = Column(
-        String,
-        nullable=False
-    )
-
-    thumbnail = Column(
         String,
         nullable=True
     )
 
-    intro_video = Column(
+    video_url = Column(
         String,
         nullable=True
     )
 
-    learning_outcomes = Column(
-        Text,
+    pdf_url = Column(
+        String,
         nullable=True
+    )
+
+    chapter_order = Column(
+        Integer,
+        nullable=False
     )
 
     created_at = Column(
@@ -68,4 +61,15 @@ class Course(Base):
         DateTime,
         default=datetime.utcnow,
         onupdate=datetime.utcnow
+    )
+
+    course = relationship(
+        "Course",
+        backref="chapters"
+    )
+
+    resources = relationship(
+        "Resource",
+        back_populates="chapter",
+        cascade="all, delete-orphan"
     )

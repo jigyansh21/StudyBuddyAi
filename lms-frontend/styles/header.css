@@ -1,0 +1,197 @@
+/* ==========================================
+   HEADER (PREMIUM SAAS)
+========================================== */
+
+.admin-header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+/* --- Left Side: Search --- */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-search {
+  position: relative;
+  width: 340px;
+}
+
+.header-search input {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px 0 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main, #0f172a);
+  /* FIXED 1: Removed transition: all */
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  outline: none;
+}
+
+.header-search input::placeholder {
+  color: var(--text-muted, #64748b);
+}
+
+.header-search input:focus {
+  border-color: var(--brand-blue, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: #ffffff;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted, #64748b);
+  transition: color 0.25s ease;
+  pointer-events: none; /* Ensures click passes through to input */
+}
+
+/* FIXED 4: Sibling selector works now because icon is placed AFTER input in HTML */
+.header-search input:focus ~ .search-icon {
+  color: var(--brand-blue, #3b82f6);
+}
+
+/* --- Right Side: Actions & Profile --- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted, #64748b);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 20px;
+  border-right: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted, #64748b);
+  cursor: pointer;
+  /* FIXED 1 & 2: Removed transition: all and added box-shadow */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+  position: relative;
+}
+
+.icon-btn:hover {
+  background: #ffffff;
+  color: var(--brand-blue, #3b82f6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.05);
+}
+
+.notification-dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--danger, #ef4444);
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+/* --- Profile Area --- */
+.header-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 14px;
+  /* FIXED 3: Added transform and box-shadow to transitions */
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header-profile:hover {
+  background: rgba(255, 255, 255, 0.6);
+  /* FIXED 3: Added profile hover transform & shadow */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main, #0f172a);
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+
+.profile-role {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted, #64748b);
+  margin-top: 2px;
+}
+
+.profile-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand-blue, #3b82f6), #8b5cf6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .header-search {
+    width: 240px;
+  }
+  .header-date {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-search {
+    width: 200px;
+  }
+  .profile-info {
+    display: none;
+  }
+  .admin-header {
+    padding: 0 20px;
+  }
+}

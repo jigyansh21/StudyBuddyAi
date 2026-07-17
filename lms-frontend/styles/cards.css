@@ -1,0 +1,87 @@
+/* ==========================================
+   COMPONENTS: CARDS (NO INLINE STYLES)
+========================================== */
+
+/* --- Stat Card --- */
+.stat-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform; 
+}
+
+/* Hover Scale Effect for Icon */
+.stat-card:hover .stat-icon-wrapper {
+  transform: scale(1.06);
+}
+
+.stat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.stat-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted); 
+  letter-spacing: 0.2px; 
+  line-height: 1.4; 
+}
+
+.stat-icon-wrapper {
+  width: 42px; 
+  height: 42px;
+  background: var(--brand-blue-light, #eff6ff); 
+  color: var(--brand-blue); 
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.stat-icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+}
+
+.stat-card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-main, #0f172a);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+  line-height: 1; 
+}
+
+.stat-card-trend {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trend-content {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.trend-content svg {
+  flex-shrink: 0; 
+}
+
+.trend-up {
+  color: var(--success); 
+}
+
+.trend-down {
+  color: var(--danger); 
+}
+
+.trend-muted {
+  color: var(--text-muted); 
+  font-weight: 500;
+} /* <-- FIXED: Added missing closing bracket */

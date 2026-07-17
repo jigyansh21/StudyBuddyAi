@@ -1,0 +1,85 @@
+/* ==========================================
+   DASHBOARD LAYOUT (STRICT SAAS)
+========================================== */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: transparent; 
+}
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  scrollbar-width: none;
+}
+
+.admin-main::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboard-content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==========================================
+   Typography & Hero
+========================================== */
+.dashboard-hero {
+  margin-bottom: 4px; 
+}
+
+.hero-title {
+  font-size: 32px; /* Fixed: Reduced from 34px */
+  font-weight: 700;
+  color: var(--text-main, #0f172a);
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero-subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted, #64748b);
+}
+
+/* ==========================================
+   Grids
+========================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 24px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .main-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .dashboard-content { padding: 24px; }
+}

@@ -1,0 +1,47 @@
+/* --- Course Card Header & Buttons --- */
+.course-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.course-menu-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border-radius: 8px;
+  /* FIXED: Added transform to transition for smooth scaling */
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.course-menu-btn:hover {
+  background: rgba(15, 23, 42, 0.05);
+  color: var(--text-main);
+  /* FIXED: Added premium scale effect */
+  transform: scale(1.05);
+}
+
+/* --- Course Card Footer --- */
+.course-card-footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Ensure the Link acts exactly like a button visually */
+a.course-card-footer.btn-primary {
+  width: 100%;
+  text-decoration: none;
+}
+
+/* --- Empty State Icon --- */
+.courses-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}

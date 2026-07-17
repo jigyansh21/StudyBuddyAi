@@ -1,17 +1,19 @@
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
+from sqlalchemy import ForeignKey
 from sqlalchemy import DateTime
-from sqlalchemy import Text
+
+from sqlalchemy.orm import relationship
 
 from datetime import datetime
 
 from database import Base
 
 
-class Course(Base):
+class Resource(Base):
 
-    __tablename__ = "courses"
+    __tablename__ = "resources"
 
     id = Column(
         Integer,
@@ -19,43 +21,29 @@ class Course(Base):
         index=True
     )
 
+    chapter_id = Column(
+        Integer,
+        ForeignKey("chapters.id"),
+        nullable=False
+    )
+
     title = Column(
         String,
         nullable=False
     )
 
+    resource_type = Column(
+        String,
+        nullable=False
+    )
+
+    file_url = Column(
+        String,
+        nullable=False
+    )
+
     description = Column(
-        Text,
-        nullable=False
-    )
-
-    category = Column(
         String,
-        nullable=False
-    )
-
-    difficulty = Column(
-        String,
-        nullable=False
-    )
-
-    language = Column(
-        String,
-        nullable=False
-    )
-
-    thumbnail = Column(
-        String,
-        nullable=True
-    )
-
-    intro_video = Column(
-        String,
-        nullable=True
-    )
-
-    learning_outcomes = Column(
-        Text,
         nullable=True
     )
 
@@ -68,4 +56,9 @@ class Course(Base):
         DateTime,
         default=datetime.utcnow,
         onupdate=datetime.utcnow
+    )
+
+    chapter = relationship(
+        "Chapter",
+        back_populates="resources"
     )
