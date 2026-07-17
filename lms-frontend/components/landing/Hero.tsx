@@ -1,37 +1,42 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, PlayCircle, LayoutDashboard, Users, BarChart3, GraduationCap, Play, BookOpen } from "lucide-react";
+import {
+  ArrowRight, Sparkles, PlayCircle,
+  LayoutDashboard, BookOpen, Users, BarChart3,
+  GraduationCap, Bell, Search, Bot, Home,
+  Grid2X2, Settings, ListChecks
+} from "lucide-react";
 
 export default function Hero() {
   return (
     <section id="home" className="hero-section">
       <div className="hero-container">
-        
-        {/* Left Side: Text Content & CTA */}
+
+        {/* ── LEFT: Text Content & CTA ── */}
         <div className="hero-content">
           <div className="hero-badge">
-            <Sparkles size={16} className="badge-icon" />
+            <Sparkles size={15} />
             <span>AI-Powered Learning Platform</span>
           </div>
-          
+
           <h1 className="hero-title">
-            Learn Smarter. <br />
+            Learn Smarter.<br />
             <span className="text-gradient">Achieve More.</span>
           </h1>
-          
+
           <p className="hero-subtitle">
-            StudyBuddy AI helps you master concepts faster with personalized learning paths, interactive quizzes, and AI-driven progress tracking.
+            StudyBuddy AI helps you master concepts faster with personalized
+            learning paths, interactive quizzes, and AI-driven progress tracking.
           </p>
-          
+
           <div className="hero-buttons">
             <Link href="/register" className="btn-primary-lg">
-              Get Started <ArrowRight size={18} />
+              Get Started <ArrowRight size={17} />
             </Link>
             <a href="#courses" className="btn-secondary-lg">
-              <PlayCircle size={18} /> Explore Courses
+              <PlayCircle size={17} /> Explore Courses
             </a>
           </div>
-          
-          {/* Social Proof / Trust Badges */}
+
           <div className="hero-social-proof">
             <div className="avatar-group">
               <div className="avatar">👦</div>
@@ -42,90 +47,118 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side: Glassmorphism Visual Mockup */}
+        {/* ── RIGHT: Full Dashboard Mockup ── */}
         <div className="hero-visual">
           <div className="mockup-window">
-            
-            {/* Window Browser Controls */}
+
+            {/* Window chrome dots */}
             <div className="mockup-window-header">
-              <span className="dot red"></span>
-              <span className="dot yellow"></span>
-              <span className="dot green"></span>
+              <span className="dot red" />
+              <span className="dot yellow" />
+              <span className="dot green" />
             </div>
-            
-            {/* 🚀 Dashboard Inner Dummy Layout */}
+
+            {/* Inner dashboard */}
             <div className="mockup-body">
-              
-              {/* 1. Dummy Sidebar */}
+
+              {/* SIDEBAR */}
               <div className="mockup-sidebar">
-                <div className="mockup-logo"><GraduationCap size={22} color="var(--brand-blue)" /></div>
-                <div className="mockup-nav-item active"><LayoutDashboard size={16} /></div>
-                <div className="mockup-nav-item"><BookOpen size={16} /></div>
-                <div className="mockup-nav-item"><Users size={16} /></div>
-                <div className="mockup-nav-item"><BarChart3 size={16} /></div>
+                <div className="mockup-logo-box">
+                  <GraduationCap size={18} color="white" />
+                </div>
+                <div className="mockup-nav-item active"><Home size={15} /></div>
+                <div className="mockup-nav-item"><BookOpen size={15} /></div>
+                <div className="mockup-nav-item"><BarChart3 size={15} /></div>
+                <div className="mockup-nav-item"><Users size={15} /></div>
+                <div className="mockup-nav-item"><Grid2X2 size={15} /></div>
+                <div className="mockup-nav-item"><Settings size={15} /></div>
               </div>
 
-              {/* Main Dashboard Area */}
+              {/* MAIN */}
               <div className="mockup-main">
-                
-                {/* 2. Dummy Header */}
-                <div className="mockup-header">
-                  <div className="mockup-greeting">
-                    <div className="line title w-60"></div>
-                    <div className="line sub w-40"></div>
+
+                {/* Top bar */}
+                <div className="mockup-topbar">
+                  <span className="mockup-page-title">Dashboard</span>
+                  <div className="mockup-topbar-right">
+                    <div className="mockup-search">
+                      <Search size={11} color="#94a3b8" />
+                      <span className="mockup-search-text">Search anything…</span>
+                    </div>
+                    <div className="mockup-bell">
+                      <Bell size={14} color="#64748b" />
+                      <span className="mockup-notif-dot" />
+                    </div>
+                    <div className="mockup-user-avatar" />
                   </div>
-                  <div className="mockup-avatar"></div>
                 </div>
 
-                {/* 3. Stats / Feature Cards */}
+                {/* Greeting */}
+                <div className="mockup-greeting-block">
+                  <p className="mockup-greeting-sub">Good Evening,</p>
+                  <p className="mockup-greeting-name">Jigyansh 👋</p>
+                  <p className="mockup-greeting-hint">Continue learning where you left off.</p>
+                </div>
+
+                {/* Progress + AI Tutor cards */}
                 <div className="mockup-cards-row">
-                  <div className="progress-card">
-                    <div className="progress-icon"><BarChart3 size={16} /></div>
-                    <div className="progress-details">
-                      <div className="line title w-50"></div>
-                      <div className="stat-bar"><div className="stat-fill w-75"></div></div>
+
+                  {/* Progress card */}
+                  <div className="mockup-progress-card">
+                    <div className="mpc-label">Overall Progress</div>
+                    <div className="mpc-percent">68%</div>
+                    <div className="mpc-bar-track">
+                      <div className="mpc-bar-fill" style={{ width: "68%" }} />
                     </div>
+                    <div className="mpc-hint">Keep it up! You're doing great.</div>
                   </div>
-                  
-                  <div className="ai-card">
-                    <div className="ai-icon"><Sparkles size={16} color="var(--brand-purple)" /></div>
-                    <div className="ai-details">
-                      <div className="line title w-60"></div>
-                      <div className="line sub w-40"></div>
+
+                  {/* AI Tutor card */}
+                  <div className="mockup-ai-card">
+                    <div className="mac-text">
+                      <div className="mac-title">AI Tutor</div>
+                      <div className="mac-sub">Ask doubts, get instant answers.</div>
+                      <div className="mac-btn">Start Chat</div>
+                    </div>
+                    <div className="mac-bot">
+                      <Bot size={38} color="white" strokeWidth={1.5} />
                     </div>
                   </div>
                 </div>
 
-                {/* 4. Dummy Course Rows */}
-                <div className="mockup-courses">
-                  <div className="line title w-30 mb-sm"></div>
-                  
-                  <div className="course-row">
-                    <div className="course-icon"><Play size={12} fill="currentColor" /></div>
-                    <div className="course-info">
-                      <div className="line title w-40"></div>
-                    </div>
-                    <div className="course-tag"></div>
+                {/* Recently Viewed */}
+                <div className="mockup-recent">
+                  <div className="mockup-recent-title">Recently Viewed</div>
+                  <div className="mockup-recent-grid">
+                    {[
+                      { label: "Python Basics", pct: 75, color: "#3b82f6", bg: "rgba(59,130,246,0.12)" },
+                      { label: "Data Structures", pct: 48, color: "#10b981", bg: "rgba(16,185,129,0.12)" },
+                      { label: "DBMS Concepts", pct: 33, color: "#8b5cf6", bg: "rgba(139,92,246,0.12)" },
+                      { label: "AI/ML Intro", pct: 20, color: "#f97316", bg: "rgba(249,115,22,0.12)" },
+                    ].map((c) => (
+                      <div key={c.label} className="mockup-recent-card">
+                        <div className="mrc-icon" style={{ background: c.bg, color: c.color }}>
+                          <BookOpen size={13} />
+                        </div>
+                        <div className="mrc-label">{c.label}</div>
+                        <div className="mrc-progress">
+                          <div className="mrc-track">
+                            <div className="mrc-fill" style={{ width: `${c.pct}%`, background: c.color }} />
+                          </div>
+                          <span className="mrc-pct">{c.pct}%</span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  
-                  <div className="course-row">
-                    <div className="course-icon"><Play size={12} fill="currentColor" /></div>
-                    <div className="course-info">
-                      <div className="line title w-50"></div>
-                    </div>
-                    <div className="course-tag alt"></div>
-                  </div>
-
                 </div>
 
-              </div>
-            </div>
+              </div>{/* /mockup-main */}
+            </div>{/* /mockup-body */}
+          </div>{/* /mockup-window */}
 
-          </div>
-          
-          {/* Floating 3D Badge */}
+          {/* Floating badge */}
           <div className="floating-badge">
-            <Sparkles size={20} color="#8b5cf6" />
+            <Sparkles size={18} color="#8b5cf6" />
             <span>AI Tutor Active</span>
           </div>
         </div>
