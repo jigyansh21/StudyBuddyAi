@@ -13,7 +13,7 @@ import "@/styles/dashboard.css";
 import "@/styles/course-details.css";
 
 // ✨ FIX 3: Extracted API URL for easy deployment changes
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "http://localhost:8000";
 
 type Chapter = {
   id: number;

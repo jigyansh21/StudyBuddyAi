@@ -17,12 +17,13 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Center: Navigation Links (Hidden on Mobile via CSS) */}
+        {/* Center: Navigation Links */}
         <div className="navbar-links">
           <a href="#home">Home</a>
           <a href="#courses">Courses</a>
           <a href="#features">Features</a>
           <a href="#about">About</a>
+          <a href="#contact">Contact Us</a>
         </div>
 
         {/* Right Side: Actions & Mobile Menu */}

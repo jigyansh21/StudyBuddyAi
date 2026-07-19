@@ -6,12 +6,21 @@ import {
   Grid2X2, Settings, ListChecks
 } from "lucide-react";
 
+/**
+ * Landing Page Hero Section
+ *
+ * Responsibilities:
+ * - Renders the first impression hero banner for unauthenticated visitors.
+ * - Displays a highly polished, static mockup of the student dashboard to demonstrate value.
+ * - Drives conversion via primary "Get Started" call-to-action buttons.
+ *
+ * @component
+ */
 export default function Hero() {
   return (
     <section id="home" className="hero-section">
       <div className="hero-container">
 
-        {/* ── LEFT: Text Content & CTA ── */}
         <div className="hero-content">
           <div className="hero-badge">
             <Sparkles size={15} />
@@ -47,21 +56,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── RIGHT: Full Dashboard Mockup ── */}
         <div className="hero-visual">
           <div className="mockup-window">
 
-            {/* Window chrome dots */}
             <div className="mockup-window-header">
               <span className="dot red" />
               <span className="dot yellow" />
               <span className="dot green" />
             </div>
 
-            {/* Inner dashboard */}
             <div className="mockup-body">
 
-              {/* SIDEBAR */}
               <div className="mockup-sidebar">
                 <div className="mockup-logo-box">
                   <GraduationCap size={18} color="white" />
@@ -74,10 +79,8 @@ export default function Hero() {
                 <div className="mockup-nav-item"><Settings size={15} /></div>
               </div>
 
-              {/* MAIN */}
               <div className="mockup-main">
 
-                {/* Top bar */}
                 <div className="mockup-topbar">
                   <span className="mockup-page-title">Dashboard</span>
                   <div className="mockup-topbar-right">
@@ -93,17 +96,14 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Greeting */}
                 <div className="mockup-greeting-block">
                   <p className="mockup-greeting-sub">Good Evening,</p>
                   <p className="mockup-greeting-name">Jigyansh 👋</p>
                   <p className="mockup-greeting-hint">Continue learning where you left off.</p>
                 </div>
 
-                {/* Progress + AI Tutor cards */}
                 <div className="mockup-cards-row">
 
-                  {/* Progress card */}
                   <div className="mockup-progress-card">
                     <div className="mpc-label">Overall Progress</div>
                     <div className="mpc-percent">68%</div>
@@ -113,7 +113,6 @@ export default function Hero() {
                     <div className="mpc-hint">Keep it up! You're doing great.</div>
                   </div>
 
-                  {/* AI Tutor card */}
                   <div className="mockup-ai-card">
                     <div className="mac-text">
                       <div className="mac-title">AI Tutor</div>
@@ -126,7 +125,6 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Recently Viewed */}
                 <div className="mockup-recent">
                   <div className="mockup-recent-title">Recently Viewed</div>
                   <div className="mockup-recent-grid">
@@ -152,11 +150,10 @@ export default function Hero() {
                   </div>
                 </div>
 
-              </div>{/* /mockup-main */}
-            </div>{/* /mockup-body */}
-          </div>{/* /mockup-window */}
+              </div>
+            </div>
+          </div>
 
-          {/* Floating badge */}
           <div className="floating-badge">
             <Sparkles size={18} color="#8b5cf6" />
             <span>AI Tutor Active</span>

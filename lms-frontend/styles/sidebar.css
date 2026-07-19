@@ -1,240 +1,348 @@
 /* ==========================================
-   SIDEBAR (FINAL PREMIUM SAAS)
-========================================== */
+   SIDEBAR — LIQUID GLASS EDITION
+   ========================================== */
+
 .admin-sidebar {
-  width: 260px;
+  width: 256px;
   height: 100vh;
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: column;
-  padding: 28px 18px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.62));
+  padding: 0;
+
+  /* ── Liquid Glass Base ── */
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.62) 0%,
+    rgba(240, 244, 255, 0.48) 40%,
+    rgba(230, 238, 255, 0.42) 100%
+  );
+  backdrop-filter: blur(32px) saturate(200%) brightness(1.06);
+  -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.06);
+
+  border-right: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    4px 0 48px rgba(99, 102, 241, 0.07),
+    inset -1px 0 0 rgba(255, 255, 255, 0.9),
+    inset 1px 0 0 rgba(255, 255, 255, 0.25);
+
+  z-index: 50;
+  flex-shrink: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  backdrop-filter: blur(26px);
-  -webkit-backdrop-filter: blur(26px);
-  border-right: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 12px 0 35px rgba(15, 23, 42, 0.03);
-  z-index: 50;
-  flex-shrink: 0; /* NEW: Prevents sidebar from shrinking */
+  scrollbar-width: none;
+  position: relative;
+}
+
+/* Top iridescent sheen strip */
+.admin-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(216, 228, 255, 0.15) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.admin-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 /* ==========================================
-   Brand & Logo
-========================================== */
+   Brand Header
+   ========================================== */
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 34px;
-  padding: 6px;
+  gap: 11px;
+  padding: 22px 20px 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar-logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   color: white;
-  box-shadow: 0 12px 25px rgba(59, 130, 246, 0.35);
+  box-shadow:
+    0 4px 16px rgba(79, 70, 229, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
   flex-shrink: 0;
-  transition: 0.25s ease;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .sidebar-logo:hover {
-  transform: rotate(-5deg) scale(1.04);
+  transform: rotate(-6deg) scale(1.08);
 }
 
 .sidebar-brand-text h2 {
   margin: 0;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   letter-spacing: -0.3px;
   color: #0f172a;
+  line-height: 1;
 }
 
 .sidebar-brand-text p {
-  margin-top: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #64748b;
-}
-
-/* ==========================================
-   Sections
-========================================== */
-.sidebar-section {
-  margin-bottom: 28px;
-}
-
-.sidebar-section-title {
-  margin: 0 0 12px 12px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  margin: 3px 0 0 0;
+  font-size: 10.5px;
+  font-weight: 600;
   color: #94a3b8;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 /* ==========================================
-   Menu
-========================================== */
+   Navigation Menu
+   ========================================== */
 .sidebar-menu {
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 8px;
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  height: 52px;
-  padding: 0 14px;
-  border-radius: 14px;
+  padding: 6px 12px;
+  gap: 1px;
   position: relative;
-  /* NEW: Ultra-smooth multi-property transition */
-  transition: background 0.25s, transform 0.25s, color 0.25s, box-shadow 0.25s;
-  font-size: 14px;
-  font-weight: 600;
-  color: #64748b;
+  z-index: 1;
 }
 
-.menu-item:hover {
-  background: rgba(255, 255, 255, 0.82);
-  transform: translateX(3px) scale(1.01);
-  color: #0f172a;
+.sidebar-section {
+  margin-bottom: 18px;
 }
 
-.menu-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  border: 1px solid #edf2f7;
-  transition: 0.25s ease;
-}
-
-/* NEW: Perfect Icon Centering for Lucide */
-.menu-icon svg {
-  width: 18px;
-  height: 18px;
-}
-
-.menu-item:hover .menu-icon {
-  background: #eff6ff;
-  color: #2563eb;
+.sidebar-section-title {
+  margin: 0 0 5px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(99, 102, 241, 0.45);
 }
 
 /* ==========================================
-   ACTIVE
-========================================== */
-.active-menu {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(239, 246, 255, 0.95));
-  color: #2563eb;
-  font-weight: 700;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+   Menu Items
+   ========================================== */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 13.5px;
+  font-weight: 550;
+  color: #475569;
+  text-decoration: none;
+  overflow: hidden;
 }
 
-.active-menu::before {
-  content: "";
+.menu-item::before {
+  content: '';
   position: absolute;
-  left: -18px;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(240, 244, 255, 0.3) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.menu-item:hover {
+  color: #3730a3;
+  background: rgba(99, 102, 241, 0.08);
+  box-shadow:
+    0 2px 12px rgba(99, 102, 241, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: translateX(2px);
+}
+
+.menu-item:hover::before {
+  opacity: 1;
+}
+
+.menu-item:hover .menu-icon {
+  color: #4f46e5;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ==========================================
+   ACTIVE — Liquid Glass Pill
+   ========================================== */
+.active-menu {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(237, 234, 255, 0.6) 100%
+  ) !important;
+  color: #3730a3 !important;
+  font-weight: 700 !important;
+  box-shadow:
+    0 4px 20px rgba(99, 102, 241, 0.15),
+    0 1px 4px rgba(99, 102, 241, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(99, 102, 241, 0.08) !important;
+  border: 1px solid rgba(99, 102, 241, 0.15) !important;
+  backdrop-filter: blur(8px);
+}
+
+.active-menu::after {
+  content: '';
+  position: absolute;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 4px;
-  height: 24px;
-  border-radius: 999px;
-  background: #2563eb;
-  box-shadow: 0 0 18px rgba(37, 99, 235, 0.5);
+  width: 3.5px;
+  height: 20px;
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
 }
 
 .active-menu .menu-icon {
-  background: #dbeafe;
-  color: #2563eb;
-  border-color: #dbeafe;
+  background: rgba(99, 102, 241, 0.1) !important;
+  color: #4f46e5 !important;
 }
 
 /* ==========================================
    Divider
-========================================== */
+   ========================================== */
 .sidebar-divider {
   height: 1px;
-  margin: 24px 0;
-  background: linear-gradient(90deg, transparent, #dbe4ef, transparent);
+  margin: 8px 12px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(99, 102, 241, 0.15) 30%,
+    rgba(226, 232, 240, 0.6) 50%,
+    rgba(99, 102, 241, 0.1) 70%,
+    transparent
+  );
 }
 
 /* ==========================================
-   Logout
-========================================== */
+   Footer / Logout
+   ========================================== */
+.sidebar-footer {
+  padding: 10px 12px 20px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
 .logout-button {
   display: flex;
   align-items: center;
-  gap: 14px;
-  height: 54px;
-  padding: 0 14px;
+  gap: 11px;
+  height: 42px;
+  padding: 0 12px;
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
   background: transparent;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  color: #64748b;
-  transition: background 0.25s, transform 0.25s, color 0.25s, box-shadow 0.25s;
+  font-size: 13.5px;
+  font-weight: 550;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  width: 100%;
+  font-family: inherit;
 }
 
 .logout-button:hover {
-  background: linear-gradient(90deg, #fff5f5, #ffffff);
+  background: rgba(239, 68, 68, 0.08);
   color: #ef4444;
-  transform: translateX(3px) scale(1.01);
-  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.08);
+  box-shadow:
+    0 2px 12px rgba(239, 68, 68, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .logout-button:hover .menu-icon {
-  background: #fee2e2;
-  border-color: #fee2e2;
+  color: #ef4444;
+}
+
+/* Online dot */
+.sidebar-online-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+  margin-left: auto;
+  flex-shrink: 0;
+  animation: sidebarPulse 2.5s infinite;
+}
+
+@keyframes sidebarPulse {
+  0%   { box-shadow: 0 0 0 0   rgba(34,197,94,0.5); }
+  60%  { box-shadow: 0 0 0 5px rgba(34,197,94,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(34,197,94,0);   }
 }
 
 /* ==========================================
    Responsive
-========================================== */
+   ========================================== */
 @media (max-width: 1100px) {
-  .admin-sidebar {
-    width: 88px;
-    padding: 24px 12px;
-  }
-  .sidebar-logo {
-    margin: auto;
+  .admin-sidebar { width: 72px; }
+  .sidebar-brand {
+    justify-content: center;
+    padding: 18px 0;
   }
   .sidebar-brand-text,
   .sidebar-section-title,
   .menu-item span,
-  .logout-button span {
+  .logout-button span,
+  .sidebar-online-dot,
+  .active-menu::after {
     display: none;
   }
-  .menu-item {
-    justify-content: center;
-    padding: 0;
-  }
+  .menu-item,
   .logout-button {
     justify-content: center;
     padding: 0;
+    height: 44px;
   }
-}
-
-/* Hide scrollbar for a cleaner look */
-.admin-sidebar {
-  scrollbar-width: none; /* Firefox */
-}
-
-.admin-sidebar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  .sidebar-menu {
+    padding: 4px 10px;
+    align-items: center;
+  }
+  .sidebar-footer { padding: 10px; }
 }

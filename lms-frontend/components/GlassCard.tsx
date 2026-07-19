@@ -3,13 +3,24 @@ import React from "react";
 type GlassCardProps = {
   id?: string;
   header?: React.ReactNode;
-  padding?: "sm" | "md" | "lg";
+  padding?: "sm" | "md" | "lg" | "none";
   hover?: boolean;
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 };
 
+/**
+ * Glassmorphism Card Wrapper
+ *
+ * Responsibilities:
+ * - Provides a consistent frosted-glass visual container used across the dashboard.
+ * - Normalizes padding, hover effects, and keyboard-accessible click handlers.
+ *
+ * @component
+ * @param {GlassCardProps} props - The configuration for the wrapper.
+ */
 export default function GlassCard({
   id,
   header,
@@ -18,6 +29,7 @@ export default function GlassCard({
   onClick,
   children,
   className = "",
+  style,
 }: GlassCardProps) {
   
   const paddingClass = `glass-pad-${padding}`;
@@ -28,6 +40,7 @@ export default function GlassCard({
     <div 
       id={id} 
       onClick={onClick}
+      style={style}
       role={onClick ? "button" : undefined}
       tabIndex={onClick ? 0 : undefined}
       onKeyDown={(e) => {

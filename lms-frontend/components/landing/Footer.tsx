@@ -1,4 +1,4 @@
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -38,6 +38,31 @@ export default function Footer() {
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Contact Section ── */}
+        <div id="contact" className="footer-contact-section">
+          <div className="footer-contact-inner">
+            <div className="footer-contact-badge">Contact Us</div>
+            <h3 className="footer-contact-title">Get in Touch</h3>
+            <p className="footer-contact-sub">
+              Have questions about StudyBuddy AI? We&apos;d love to hear from you.
+            </p>
+            <div className="footer-contact-cards">
+              <a
+                href="mailto:jigyanshdara@gmail.com"
+                className="footer-contact-card"
+              >
+                <div className="footer-contact-card-icon">
+                  <Mail size={22} />
+                </div>
+                <div>
+                  <p className="footer-contact-card-label">Email Us</p>
+                  <p className="footer-contact-card-value">jigyanshdara@gmail.com</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>

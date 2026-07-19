@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 
+/**
+ * Static mock data for the Featured Courses section.
+ * In a production environment, this should be fetched from the public
+ * GET /courses/ endpoint to dynamically highlight popular content.
+ */
 const courses = [
   {
     id: 1,
@@ -12,7 +17,6 @@ const courses = [
     badgeText: "#3b82f6",
     rating: "4.8",
     reviews: "1.2k",
-    /* Teal-blue background for icon, exactly like reference */
     iconBg: "rgba(59,130,246,0.13)",
     iconBorder: "rgba(59,130,246,0.18)",
   },
@@ -26,7 +30,6 @@ const courses = [
     badgeText: "#059669",
     rating: "4.9",
     reviews: "804",
-    /* Green background */
     iconBg: "rgba(16,185,129,0.13)",
     iconBorder: "rgba(16,185,129,0.2)",
   },
@@ -40,7 +43,6 @@ const courses = [
     badgeText: "#6366f1",
     rating: "4.7",
     reviews: "643",
-    /* Purple background */
     iconBg: "rgba(99,102,241,0.13)",
     iconBorder: "rgba(99,102,241,0.2)",
   },
@@ -54,12 +56,20 @@ const courses = [
     badgeText: "#ea580c",
     rating: "4.9",
     reviews: "723",
-    /* Orange background */
     iconBg: "rgba(249,115,22,0.13)",
     iconBorder: "rgba(249,115,22,0.2)",
   },
 ];
 
+/**
+ * Featured Courses Section
+ *
+ * Responsibilities:
+ * - Renders a visually appealing grid of popular courses on the landing page.
+ * - Drives conversion by directing unauthenticated users to the login/registration flow.
+ *
+ * @component
+ */
 export default function FeaturedCourses() {
   return (
     <section id="courses" className="featured-section">
@@ -82,7 +92,6 @@ export default function FeaturedCourses() {
           {courses.map((c) => (
             <div key={c.id} className="course-landing-card">
 
-              {/* Colored icon box — matches reference exactly */}
               <div
                 className="course-card-icon-box"
                 style={{

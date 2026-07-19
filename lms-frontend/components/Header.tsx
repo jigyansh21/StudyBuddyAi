@@ -4,7 +4,18 @@ import React from "react";
 import { Search, Bell, CalendarDays } from "lucide-react";
 import "../styles/header.css";
 
+/**
+ * Admin Top Navigation Header
+ *
+ * Responsibilities:
+ * - Renders the global admin search bar, dynamic date display, notification bell,
+ *   and admin profile badge.
+ * - Handles hydration-safe date rendering using the suppressHydrationWarning prop.
+ *
+ * @component
+ */
 export default function Header() {
+  // Pre-computes the current date in a human-readable format (e.g. "Mon, Oct 2, 2026")
   const currentDate = new Date().toLocaleDateString('en-US', { 
     weekday: 'short', 
     year: 'numeric', 
@@ -20,7 +31,6 @@ export default function Header() {
         <div className="header-search">
           <input 
             type="text" 
-            // Fixed Change 3: Cleaned up placeholder
             placeholder="Search courses, students..." 
             aria-label="Search"
           />
@@ -43,7 +53,7 @@ export default function Header() {
           <span className="notification-dot"></span>
         </button>
 
-        {/* Admin Profile - Fixed Change 1 & 2: Generic 'Admin' for reusability */}
+        {/* Admin Profile */}
         <div className="header-profile" aria-label="Admin Profile">
           <div className="profile-info">
             <span className="profile-name">Admin</span>

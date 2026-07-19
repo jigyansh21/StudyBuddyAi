@@ -28,7 +28,7 @@ export default function LoginPage() {
     setIsError(false);
 
     try {
-      const res  = await fetch("http://127.0.0.1:8000/auth/login", {
+      const res  = await fetch("http://localhost:8000/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -45,6 +45,8 @@ export default function LoginPage() {
       localStorage.setItem("access_token", data.access_token);
       localStorage.setItem("role",         data.role);
       localStorage.setItem("user_email",   email);
+      if (data.name) localStorage.setItem("user_name", data.name);
+      if (data.user_id) localStorage.setItem("user_id", data.user_id);
 
       if (data.role === "admin") {
         router.push("/admin");
